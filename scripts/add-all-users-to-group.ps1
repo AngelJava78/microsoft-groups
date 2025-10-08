@@ -1,5 +1,5 @@
 # Conexión a Microsoft Graph
-Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All" -TenantId $tenantId  -NoWelcome
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All" -TenantId $tenantId -NoWelcome
 # Obtener el grupo
 $group = Get-MgGroup -Filter "displayName eq 'Grupo M365 de Ejemplo'" -ConsistencyLevel eventual
 $groupId = $group.Id

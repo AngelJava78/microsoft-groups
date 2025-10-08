@@ -31,11 +31,11 @@ New-MgInvitation
 ```
 
 ## Permisos
-|Permission type	|Permissions (from least to most privileged)|
+|Permission type|Permissions (from least to most privileged)|
 |---|---|
-|Delegated (work or school account)	|User.Invite.All, User.ReadWrite.All, Directory.ReadWrite.All,|
+|Delegated (work or school account)|User.Invite.All, User.ReadWrite.All, Directory.ReadWrite.All,|
 |Delegated (personal Microsoft account)	|Not supported|
-|Application	|User.Invite.All, User.ReadWrite.All, Directory.ReadWrite.All,|
+|Application|User.Invite.All, User.ReadWrite.All, Directory.ReadWrite.All,|
 
 ## Ejemplos
 
@@ -60,9 +60,6 @@ New-MgInvitation -InvitedUserDisplayName $displayName -InvitedUserEmailAddress $
 ```powershell
 $tenantId="//Aquí va tu tenantId"
 Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All" -TenantId $tenantId
-$PasswordProfile = @{
-  Password = "P@ssw0rd123!"
-}
 $displayName="//Nombre de tu usuario"
 $emailAddress="//Correo de tu usuario invitado"
 $inviteUrl="https://myapplications.microsoft.com/?tenantid=//Aquí va tu tenantId"
@@ -75,3 +72,6 @@ New-MgInvitation -InvitedUserDisplayName $displayName -InvitedUserEmailAddress $
 2. El usuario recibirá una invitación por correo.
 
 ![alt text](image-12.png)
+
+## Referencias
+- [New-MgInvitation](https://learn.microsoft.com/en-us/powershell/module/microsoft.graph.identity.signins/new-mginvitation?view=graph-powershell-1.0)

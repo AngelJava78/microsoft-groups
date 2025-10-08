@@ -28,7 +28,7 @@ Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All"
 ```
 Si tiene acceso a varios Tenant, podría indicar el id del tenant.
 ```powershell
-Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" --TenantId $tenantId"
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" -TenantId $tenantId
 ```
 ### Uso del flujo de código del dispositivo
 
@@ -99,7 +99,7 @@ El siguiente script establece una conexión autenticada al **SDK de Microsoft Gr
 
 ```powershell
 $tenantId="//Aquí va tu tenantId//"
-Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" --TenantId $tenantId"
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" -TenantId $tenantId
 ```
 ![alt text](image-3.png)
 
@@ -113,6 +113,26 @@ Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" --TenantId $tenan
 4. Se mostrará el mensaje de Bienvenida.
 
 ![alt text](image-5.png)
+
+#### Ejemplo práctico con aprobación de administrador
+
+1. Ejecute en PowerShell
+```powershell
+$darmx="//Aquí va tu tenantId//"
+Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All" -TenantId $darmx
+```
+![alt text](image-6.png)
+
+
+2. Seleccione la cuenta para iniciar sesión.
+
+![alt text](image-2.png)
+
+3. Se solicitará la aprobación del administrador.
+
+![alt text](image-7.png)
+
+4. Si el administrador autoriza su aprobación podrá contnuar
 
 ## Referencias
 

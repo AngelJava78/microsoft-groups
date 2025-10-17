@@ -5,12 +5,11 @@
 
 # Obtener el token desde token.sh
 token=$(./token.sh)
-echo "Token: $token"
-curl --location "https://graph.microsoft.com/v1.0/users" \
+
+echo "Fetching all users:"
+curl --silent --location "https://graph.microsoft.com/v1.0/users" \
     --header "Authorization: Bearer $token" > users.json
 
-cat users.json
-echo "Fetching all users:"
 echo "ID                                    DisplayName               UserPrincipalName"
 echo "--------------------------------------------------------------------------------------------------------------------------------"
 

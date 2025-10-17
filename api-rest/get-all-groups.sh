@@ -4,16 +4,15 @@
 # Obtener el token desde token.sh
 token=$(./token.sh)
 
-#$GROUP_ID=$1
-echo "\n*************************************************\n"
-# Esto si devuelve el json
-curl --location "https://graph.microsoft.com/v1.0/groups?$filter=groupTypes/any(c:c+eq+'Unified')" \
-    --header "Authorization: Bearer $token"
+# Get all groups
+curl --silent --location "https://graph.microsoft.com/v1.0/groups" \
+    --header "Authorization: Bearer $token" > temp_groups.json
 
-echo "\n*************************************************\n"
-GROUPS=$(curl --location "https://graph.microsoft.com/v1.0/groups?$filter=groupTypes/any(c:c+eq+'Unified')" \
-    --header "Authorization: Bearer $token")
-
-echo "Grupos:"
-# Esto imprime 1000
-echo "$GROUPS" | jq '.value[] | {id, displayName}'
+echo "Fetching all groups:"
+echo "ID                                    DisplayName"
+echo "--------------------------------------------------------------------------------------------------------------------------------"
+jq -r '
+  .value[] |
+  [ .id, .displayName ] |
+  @tsv
+' "temp_groups.json" | column -t -s $'\t'

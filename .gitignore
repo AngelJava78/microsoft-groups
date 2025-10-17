@@ -1,6 +1,2 @@
-api-rest/token.sh
-api-rest/members.json
+api-rest/.env
 api-rest/*.json
-api-rest/delegate_token.sh
-api-rest/device-auth.sh
-api-rest/_token.sh
